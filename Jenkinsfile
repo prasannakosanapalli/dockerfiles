@@ -1,11 +1,11 @@
 node {
 	stage("checkout SCM") {
-			checkout changelog: false, scm: [$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'BitCred', url: 'http://novartis.devops.altimetrik.io:7990/scm/son/ansible-roles.git']]]
+		git changelog: false, credentialsId: 'github', url: 'https://github.com/prasannakosanapalli/dockerfiles.git'
 		}
 		stage("ansible-roles") {
+			ansiblePlaybook installation: 'ansible', playbook: 'playbook.yml'
 			
-			step([$class: 'AnsiblePlaybookBuilder', additionalParameters: '', ansibleName: 'ansibles', becomeUser: '', credentialsId: '', forks: 5, inventory: [$class: 'InventoryDoNotSpecify'], limit: '', playbook: 'playbook.yml', skippedTags: '', startAtTask: '', sudoUser: '', tags: '', vaultCredentialsId: ''])		
-		}
+			}
 
 }
 	

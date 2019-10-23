@@ -1,0 +1,11 @@
+--- 
+- 
+  maven_artifact: 
+    artifact_id: consumerBanking
+    dest: /home/ubuntu/
+    group_id: com.companyname.bank
+    password: password123
+    repository_url: "http://novartis.devops.altimetrik.io:8082/repository/novartis-maven"
+    username: admin
+    version: latest
+  name: nexusurl

@@ -1,0 +1,11 @@
+---
+  - hosts: localhost
+    become: yes
+    name: nexus-role
+    remote_user: root
+    become: yes
+    become_method: sudo
+    gather_facts: true
+    roles:
+      - nexus-role
+
